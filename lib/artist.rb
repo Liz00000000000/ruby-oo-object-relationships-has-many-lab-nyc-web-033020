@@ -18,6 +18,11 @@ class Artist
     end
   end
 
+  def posts
+    Post.all.select do |post|
+      post.artist == self
+    end 
+
   def add_song_by_name(song)
     song = Song.new(song)
     song.artist == self
@@ -26,8 +31,4 @@ class Artist
   def self.song_count
     Song.all.length
   end
-end
-
-
-class Song
 end
